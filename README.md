@@ -1,24 +1,7 @@
-# README
+[![ruby-check](https://github.com/SaenkoJr/ftl-test-task/actions/workflows/ruby-check.yml/badge.svg)](https://github.com/SaenkoJr/ftl-test-task/actions/workflows/ruby-check.yml)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## FTL Test Task
 
-Things you may want to cover:
+[Demo](https://ftl-test-task.herokuapp.com)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+P.s. i'm using free heroku dyno so it may take a while
