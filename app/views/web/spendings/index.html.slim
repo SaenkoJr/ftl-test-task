@@ -1,5 +1,6 @@
 h1.mb-4
   = t('.heading')
+span.text-muted= t('.sharing_link', link: user_url(current_user.username))
 hr
 
 = link_to t('.add_spending'), new_spending_path, class: 'btn btn-primary'
