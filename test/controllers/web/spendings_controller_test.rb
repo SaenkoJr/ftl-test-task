@@ -112,7 +112,7 @@ class Web::SpendingsControllerTest < ActionDispatch::IntegrationTest
   test '#update (non author must be redirected)' do
     spending = spendings(:one)
     new_attrs = {
-      name: Faker::Lorem.sentence,
+      name: Faker::Lorem.sentence
     }
 
     patch spending_path(spending), params: { spending: new_attrs }
