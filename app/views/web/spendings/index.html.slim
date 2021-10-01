@@ -2,18 +2,12 @@ h1.mb-4
   = t('.heading')
 hr
 
-= link_to t('.add_spending'), new_spending_path
+= link_to t('.add_spending'), new_spending_path, class: 'btn btn-primary'
 
-p Total: #{@total_amount}
+= render partial: "search_form", locals: { q: @q }
 
-- @spendings.each do |spending|
-  div.mb-4
-    h3= spending.name
-    p= spending.description
-    p Amount: #{spending.amount}
-    p Category: #{spending.category.name}
-    - if policy(spending).edit?
-      = link_to t(:edit), edit_spending_path(spending), class: 'me-2'
-    - if policy(spending).destroy?
-      = link_to t(:delete), spending_path(spending), method: :delete, data: { confirm: t(:destroy_confirm) }
-    hr
+h4.mt-4 Total amount: #{@total_amount}
+hr
+
+.row.row-cols-1.row-cols-md-2.g-4
+  = render @spendings

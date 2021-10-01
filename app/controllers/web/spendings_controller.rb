@@ -7,8 +7,12 @@ class Web::SpendingsController < Web::ApplicationController
 
   def index
     authorize Spending
-    @spendings = current_user.spendings
+
+    @q = current_user.spendings.ransack(ransack_params)
+    @spendings = @q.result
+                   .includes(:category)
     @total_amount = @spendings.sum(:amount)
+    @categories = Category.all
   end
 
   def new
