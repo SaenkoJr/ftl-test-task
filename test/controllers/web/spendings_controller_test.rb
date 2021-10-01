@@ -1,0 +1,68 @@
+# frozen_string_literal: true
+
+require 'test_helper'
+
+class Web::SpendingsControllerTest < ActionDispatch::IntegrationTest
+  test '#new' do
+    get new_spending_path
+    assert_response :success
+  end
+
+  test '#edit' do
+    get edit_spending_path
+    assert_response :success
+  end
+
+  test '#show' do
+    spending = spendings(:one)
+    get spending_path(spending)
+    assert_response :success
+  end
+
+  test '#create' do
+    user = sign_in_as(:one)
+    category = categories(:one)
+    spending_attrs = {
+      name: Faker::Lorem.sentence,
+      description: Faker::Lorem.sentence,
+      amount: 55.2,
+      category_id: category.id
+    }
+
+    assert_difference('Spending.count', +1) do
+      post spendings_path, params: { spending: spending_attrs }
+    end
+
+    spending = Spending.last
+
+    assert { spending }
+    assert_equal spending.name, spending_attrs[:name]
+    assert_equal spending.category, category
+    assert_equal spending.user, user
+    assert_redirected_to root_path
+  end
+
+  test '#update' do
+    spending = spendings(:one)
+    category = categories(:two)
+    new_attrs = {
+      name: Faker::Lorem.sentence,
+      category_id: category.id
+    }
+
+    patch spending_path(spending), params: { spending: new_attrs }
+
+    spending.reload
+    assert_equal spending.name, new_attrs[:name]
+    assert_equal spending.category, category
+    assert_redirected_to spending_path(spending)
+  end
+
+  test 'should get destroy' do
+    spending = spendings(:one)
+    assert_difference('Spending.count', -1) do
+      delete spending_path(spending)
+    end
+    assert_redirected_to root_path
+  end
+end

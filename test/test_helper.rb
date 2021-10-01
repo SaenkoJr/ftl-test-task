@@ -16,4 +16,17 @@ end
 
 class ActionDispatch::IntegrationTest
   include AuthConcern
+
+  def sign_in_as(name)
+    user = users(name)
+
+    post session_path, params: {
+      user: {
+        username: user[:username],
+        password: 'password'
+      }
+    }
+
+    user
+  end
 end
