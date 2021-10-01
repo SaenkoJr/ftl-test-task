@@ -1,0 +1,22 @@
+en:
+  web:
+    spendings:
+      spending:
+        description: Description
+        category: Category
+        amount: Amount
+      index:
+        heading: Spendings
+        add_spending: Add new spending
+        total_amount: Total amount
+      new:
+        heading: Create new spending
+      edit:
+        heading: Update spending
+    users:
+      show:
+        heading: "%{username}'s spending list"
+        description: Description
+        category: Category
+        amount: Amount
+        total_amount: Total amount

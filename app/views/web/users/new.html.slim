@@ -1,10 +1,11 @@
-h1.mb-4
-  = t('.sign_up')
-hr
+.text-center
+  h1.mb-4
+    = t(:sign_up)
+  hr
 
 = simple_form_for @user do |f|
   = f.input :username
   = f.input :password
   = f.input :password_confirmation
 
-  = f.button :submit, class: 'btn btn-success mt-4 btn-block'
+  = f.button :submit, t(:sign_up), class: 'btn btn-success mt-4 btn-block'

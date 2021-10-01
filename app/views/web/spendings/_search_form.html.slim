@@ -1,11 +1,11 @@
 .border.mt-4.p-3
   = search_form_for q, html: { class: 'row row-cols-4' } do |f|
     = f.input :name_cont,
-              label: t(:name_cont, scope: [:simple_form, :labels, :q, :spending])
+              label: t(:name_cont, scope: [:simple_form, :labels, :q, :spendings])
     = f.input :category_name_cont,
               collection: @categories,
               value_method: :name,
-              label: t(:category_cont, scope: [:simple_form, :labels, :q, :spending]),
+              label: t(:category_cont, scope: [:simple_form, :labels, :q, :spendings]),
               input_html: { class: 'form-select form-control-sm' }
 
     .col-auto.d-flex.mb-3
@@ -13,7 +13,6 @@
         = f.button :submit, t(:search), class: 'btn btn-outline-secondary me-3'
         = link_to t(:reset), url_for, class: 'btn btn-secondary me-3'
   .d-flex.align-items-center
-    span #{t('.sort_by')}:
+    span #{t(:sort_by)}:
     ul.list-group.list-group-horizontal
       li.list-group-item.border-0= sort_link(@q, :amount, {}, { class: 'text-decoration-none text-secondary' } )
-      li.list-group-item.border-0= sort_link(@q, :created_at, {}, { class: 'text-decoration-none text-secondary' } )

@@ -1,15 +1,15 @@
 .container.mb-2
   .d-flex.flex-wrap.py-2.border-bottom
     = link_to root_path, class: 'd-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none' do
-      span.fs-4= t(:home)
+      span.fs-4= t(:title)
     ul.nav.nav-pills
       - if signed_in?
         li.nav-item.me-2
-          = link_to t('.sign_out'), session_path, method: :delete, class: 'nav-link text-dark'
+          = link_to t(:sign_out), session_path, method: :delete, class: 'nav-link text-dark'
       - else
         li.nav-item.me-2
           = link_to new_session_path, class: 'nav-link text-dark' do
-            = t('.login')
+            = t(:sign_in)
         li.nav-item.me-2
           = link_to new_user_path, class: 'nav-link text-dark' do
-            = t('.signup')
+            = t(:sign_up)

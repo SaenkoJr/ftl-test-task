@@ -30,4 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: FTL Test Task
+  edit: Edit
+  new: New
+  show: Show
+  delete: Delete
+  destroy_confirm: Are you sure?
+  search: Search
+  reset: Reset
+  sort_by: Sort by
+  sign_in: Sign in
+  sign_up: Sign up
+  sign_out: Sign out

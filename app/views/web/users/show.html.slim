@@ -1,9 +1,11 @@
-h4.mb-4 Total amount: #{@total_amount}
+h1.mb-4= t('.heading', username: params[:username])
+
+h5.mb-4 #{t('.total_amount')}: #{@total_amount}
 hr
 
 - @spendings.each do |spending|
   .mb-4
     h3= spending.name
-    p Description: #{spending.description}
-    p Category: #{spending.category.name}
-    p Amount: #{spending.amount}
+    p #{t('.description')}: #{spending.description}
+    p #{t('.category')}: #{spending.category.name}
+    p #{t('.amount')}: #{spending.amount}
