@@ -8,6 +8,12 @@ class Web::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test '#show' do
+    user = users(:one)
+    get user_path(user.username)
+    assert_response :success
+  end
+
   test '#create' do
     user_attrs = {
       username: 'username',

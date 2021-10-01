@@ -1,0 +1,9 @@
+h4.mb-4 Total amount: #{@total_amount}
+hr
+
+- @spendings.each do |spending|
+  .mb-4
+    h3= spending.name
+    p Description: #{spending.description}
+    p Category: #{spending.category.name}
+    p Amount: #{spending.amount}

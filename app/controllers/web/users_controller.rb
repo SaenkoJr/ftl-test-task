@@ -5,6 +5,13 @@ class Web::UsersController < Web::ApplicationController
     @user = User.new
   end
 
+  def show
+    @spendings = User.find_by(username: params[:username])
+                     .spendings
+                     .includes(:category)
+    @total_amount = @spendings.sum(:amount)
+  end
+
   def create
     @user = User.new(user_params)
 
