@@ -1,0 +1,7 @@
+= simple_form_for spending do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :amount
+  = f.association :category, input_html: { class: 'form-select' }
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block'

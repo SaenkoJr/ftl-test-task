@@ -1,2 +1,9 @@
-h1 Web::Sessions#new
-p Find me in app/views/web/sessions/new.html.slim
+.text-center
+  h1.mb-4
+    = t('.sign_in')
+
+= simple_form_for @user, url: session_path do |f|
+  = f.input :username
+  = f.input :password
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block'

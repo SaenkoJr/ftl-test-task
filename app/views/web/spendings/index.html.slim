@@ -1,0 +1,17 @@
+h1.mb-4
+  = t('.heading')
+hr
+
+= link_to t('.add_spending'), new_spending_path
+
+p Total: #{@total_amount}
+
+- @spendings.each do |spending|
+  div.mb-4
+    h3= spending.name
+    p= spending.description
+    p Amount: #{spending.amount}
+    p Category: #{spending.category.name}
+    = link_to t(:edit), edit_spending_path(spending), class: 'me-2'
+    = link_to t(:delete), spending_path(spending), method: :delete, data: { confirm: t(:destroy_confirm) }
+    hr

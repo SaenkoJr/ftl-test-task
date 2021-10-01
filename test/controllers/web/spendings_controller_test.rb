@@ -3,17 +3,28 @@
 require 'test_helper'
 
 class Web::SpendingsControllerTest < ActionDispatch::IntegrationTest
+  test '#index' do
+    sign_in_as(:one)
+    get spendings_path
+    assert_response :success
+  end
+
   test '#new' do
+    sign_in_as(:one)
     get new_spending_path
     assert_response :success
   end
 
   test '#edit' do
-    get edit_spending_path
+    sign_in_as(:one)
+    spending = spendings(:one)
+
+    get edit_spending_path(spending)
     assert_response :success
   end
 
   test '#show' do
+    sign_in_as(:one)
     spending = spendings(:one)
     get spending_path(spending)
     assert_response :success
@@ -43,6 +54,7 @@ class Web::SpendingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test '#update' do
+    sign_in_as(:one)
     spending = spendings(:one)
     category = categories(:two)
     new_attrs = {
@@ -59,6 +71,7 @@ class Web::SpendingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get destroy' do
+    sign_in_as(:one)
     spending = spendings(:one)
     assert_difference('Spending.count', -1) do
       delete spending_path(spending)

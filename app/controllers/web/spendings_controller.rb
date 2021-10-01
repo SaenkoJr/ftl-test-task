@@ -3,6 +3,11 @@
 class Web::SpendingsController < ApplicationController
   before_action :set_spending, only: %i[show edit update destroy]
 
+  def index
+    @spendings = current_user.spendings
+    @total_amount = @spendings.sum(:amount)
+  end
+
   def new
     @spending = Spending.new
   end

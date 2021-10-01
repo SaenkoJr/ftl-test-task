@@ -1,2 +1,5 @@
-h1 Web::Spendings#edit
-p Find me in app/views/web/spendings/edit.html.slim
+h1.mb-4
+  = t('.heading')
+hr
+
+= render partial: "form", locals: { spending: @spending }
