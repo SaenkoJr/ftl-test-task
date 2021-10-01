@@ -22,7 +22,7 @@ class Web::UsersControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_difference('User.count', +1) do
-      post user_path, params: { user: user_attrs }
+      post users_path, params: { user: user_attrs }
     end
     assert_redirected_to root_path
 
