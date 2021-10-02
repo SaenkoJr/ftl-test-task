@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
     resource :session, only: %i[new create destroy]
     resources :users, only: %i[new show create], param: :username
-    resources :spendings
+    resources :spendings, except: :show
   end
 end

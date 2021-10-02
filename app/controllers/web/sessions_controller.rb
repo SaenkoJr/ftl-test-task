@@ -10,9 +10,9 @@ class Web::SessionsController < Web::ApplicationController
 
     if user&.authenticate(sign_in_params[:password])
       sign_in user
-      redirect_to root_path, notice: t('.success')
+      redirect_to root_path
     else
-      redirect_to new_session_path, notice: t('.failed')
+      redirect_to new_session_path, alert: t('.failed')
     end
   end
 

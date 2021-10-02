@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Web::SpendingsController < Web::ApplicationController
-  before_action :set_spending, only: %i[show edit update destroy]
+  before_action :set_spending, only: %i[edit update destroy]
 
   after_action :verify_authorized
 
@@ -20,10 +20,6 @@ class Web::SpendingsController < Web::ApplicationController
     @spending = Spending.new
   end
 
-  def show
-    authorize @spending
-  end
-
   def edit
     authorize @spending
   end
@@ -33,7 +29,7 @@ class Web::SpendingsController < Web::ApplicationController
     @spending = current_user.spendings.build(spending_params)
 
     if @spending.save
-      redirect_to root_path
+      redirect_to root_path, notice: t('.success')
     else
       render :new
     end
@@ -42,7 +38,7 @@ class Web::SpendingsController < Web::ApplicationController
   def update
     authorize @spending
     if @spending.update(spending_params)
-      redirect_to spending_path(@spending)
+      redirect_to root_path, notice: t('.success')
     else
       render :edit
     end
@@ -52,7 +48,7 @@ class Web::SpendingsController < Web::ApplicationController
     authorize @spending
     @spending.destroy
 
-    redirect_to root_path
+    redirect_to root_path, notice: t('.success')
   end
 
   private

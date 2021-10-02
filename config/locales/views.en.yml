@@ -14,6 +14,12 @@ en:
         heading: Create new spending
       edit:
         heading: Update spending
+      create:
+        success: Spending was created
+      update:
+        success: Spending was updated
+      destroy:
+        success: Spending was destroyed
     users:
       show:
         heading: "%{username}'s spending list"
@@ -21,3 +27,6 @@ en:
         category: Category
         amount: Amount
         total_amount: Total amount
+    sessions:
+      create:
+        failed: Wrong password or username

@@ -40,19 +40,6 @@ class Web::SpendingsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_session_path
   end
 
-  test '#show' do
-    sign_in_as(:one)
-    spending = spendings(:one)
-    get spending_path(spending)
-    assert_response :success
-  end
-
-  test '#show (non author must be redirected)' do
-    spending = spendings(:one)
-    get spending_path(spending)
-    assert_redirected_to new_session_path
-  end
-
   test '#create' do
     user = sign_in_as(:one)
     category = categories(:one)
@@ -106,7 +93,7 @@ class Web::SpendingsControllerTest < ActionDispatch::IntegrationTest
     spending.reload
     assert_equal spending.name, new_attrs[:name]
     assert_equal spending.category, category
-    assert_redirected_to spending_path(spending)
+    assert_redirected_to root_path
   end
 
   test '#update (non author must be redirected)' do

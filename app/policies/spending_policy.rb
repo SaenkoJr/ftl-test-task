@@ -9,10 +9,6 @@ class SpendingPolicy < ApplicationPolicy
     !user.guest?
   end
 
-  def show?
-    author?
-  end
-
   def edit?
     author?
   end
